@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="~/css/site.css" / >
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -20,3 +23,55 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Texto general */
+body {
+    margin-bottom: 60px; /* lo que ya estaba */
+    color: #333; /* color del texto */
+    font-family: Arial, sans-serif;
+}
+
+/* Párrafos */
+p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: #258cfb; /* mismo azul que usa tu tema */
+}
+
+/* Card de mascotas */
+.card-mascota {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    /* Efecto hover */
+    .card-mascota:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Imagen dentro de la card */
+    .card-mascota img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Botón dentro de la card */
+    .card-mascota button {
+        background-color: #258cfb;
+        border: none;
+    }
+
+        .card-mascota button:hover {
+            background-color: #1b6ec2;
+        }

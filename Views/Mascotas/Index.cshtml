@@ -1,35 +1,27 @@
 ﻿@model IEnumerable<AdopcionMascotas.Models.Mascota>
 
-<h2>Lista de Mascotas</h2>
+@{
+    ViewData["Title"] = "Lista de Mascotas";
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Especie</th>
-            <th>Edad</th>
-            <th>Estado</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var m in Model)
-        {
-            <tr>
-                <td>
-                    <img src="@m.Imagen" alt="@m.Nombre" width="120" />
-                </td>
-                <td>@m.Nombre</td>
-                <td>@m.Especie</td>
-                <td>@m.Edad</td>
-                <td>@m.Estado</td>
-                <td>
-                    <a asp-controller="Mascotas" asp-action="Detalle" asp-route-id="@m.Id" class="btn btn-info">Ver Detalle</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h2 class="mb-4">Mascotas en Adopción 🐾</h2>
 
+<div class="row">
+    @foreach (var m in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card-mascota">
+                <img src="@m.Imagen" alt="@m.Nombre" />
+                <h3>@m.Nombre</h3>
+                <p><strong>Especie:</strong> @m.Especie</p>
+                <p><strong>Edad:</strong> @m.Edad años</p>
+                <p><strong>Estado:</strong> @m.Estado</p>
+
+                <a asp-controller="Mascotas" asp-action="Detalle" asp-route-id="@m.Id" class="btn btn-primary">
+                    ¡Preguntá por mí!
+                </a>
+            </div>
+        </div>
+    }
+</div>
 

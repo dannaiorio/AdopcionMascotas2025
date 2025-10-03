@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AdopcionMascotas.Models.Mascota>
+
+<h2>Lista de Mascotas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Edad</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@m.Imagen" alt="@m.Nombre" width="120" />
+                </td>
+                <td>@m.Nombre</td>
+                <td>@m.Especie</td>
+                <td>@m.Edad</td>
+                <td>@m.Estado</td>
+                <td>
+                    <a asp-controller="Mascotas" asp-action="Detalle" asp-route-id="@m.Id" class="btn btn-info">Ver Detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

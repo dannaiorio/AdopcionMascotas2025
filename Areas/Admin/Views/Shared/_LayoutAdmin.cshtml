@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Panel Admin - Refugio de Mascotas</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/Admin/Mascotas">Panel Admin</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Mascotas">Mascotas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Ir al sitio público</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Bloque de alertas -->
+    <div class="container mt-3">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div id="alertMsg" class="alert alert-success alert-dismissible fade show">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div id="alertMsg" class="alert alert-danger alert-dismissible fade show">
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+    </div>
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <footer class="bg-light text-center text-muted py-3 mt-5">
+        <small>&copy; @DateTime.Now.Year - Refugio de Mascotas</small>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script para ocultar automáticamente -->
+    <script>
+        setTimeout(function () {
+            var alert = document.getElementById('alertMsg');
+            if (alert) {
+                alert.style.transition = "opacity 0.5s ease";
+                alert.style.opacity = "0";
+                setTimeout(function () { alert.remove(); }, 500);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

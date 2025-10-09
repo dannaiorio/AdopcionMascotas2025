@@ -14,14 +14,28 @@ namespace AdopcionMascotas.Controllers
             _context = context;
         }
 
-        // GET: /Mascotas te muestra una lista con todas las mascotas cargadas.
         public IActionResult Index()
         {
             var mascotas = _context.Mascotas.ToList();
             return View(mascotas);
         }
 
-        // GET: /Mascotas/Detalle/5 Esto es lo que se abre cuando hacés clic en "Ver" en la lista.
+        public IActionResult Gatos()
+        {
+            var gatos = _context.Mascotas.Where(m => m.Especie == EspecieMascota.Gato).ToList();
+            ViewData["Title"] = "Gatos en Adopción";
+            ViewData["TipoMascota"] = "Gatos";
+            return View("MascotasPorEspecie", gatos);
+        }
+
+        
+        public IActionResult Perros()
+        {
+            var perros = _context.Mascotas.Where(m => m.Especie == EspecieMascota.Perro).ToList();
+            ViewData["Title"] = "Perros en Adopción";
+            ViewData["TipoMascota"] = "Perros";
+            return View("MascotasPorEspecie", perros);
+        }
         public IActionResult Detalle(int id)
         {
             var mascota = _context.Mascotas.FirstOrDefault(m => m.Id == id);
@@ -32,13 +46,11 @@ namespace AdopcionMascotas.Controllers
             return View(mascota);
         }
 
-        // GET: /Mascotas/Crear Muestra un formulario vacío (Crear.cshtml) para cargar una nueva mascota.
         public IActionResult Crear()
         {
             return View();
         }
 
-        // POST: /Mascotas/Crear Esto es lo que hace que cuando vos agregues un nuevo registro en el formulario, se inserte en AdopcionMascotasDB → tabla Mascotas.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Crear(Mascota mascota)

@@ -1,0 +1,68 @@
+@model IEnumerable<AdopcionMascotas.Models.Mascota>
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Mascotas en Adopción";
+    var tipoMascota = ViewData["TipoMascota"]?.ToString() ?? "Mascotas";
+}
+
+<h2 class="mb-4">@ViewData["Title"] 🐾</h2>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h6 class="card-title">Cambiar categoría:</h6>
+                <div class="btn-group" role="group" aria-label="Filtros de mascotas">
+                    <a asp-controller="Mascotas" asp-action="Index" class="btn btn-outline-primary">
+                        🐾 Ver Todas
+                    </a>
+                    <a asp-controller="Mascotas" asp-action="Gatos" class="btn @(tipoMascota == "Gatos" ? "btn-warning" : "btn-outline-warning")">
+                        🐱 Ver Gatos
+                    </a>
+                    <a asp-controller="Mascotas" asp-action="Perros" class="btn @(tipoMascota == "Perros" ? "btn-success" : "btn-outline-success")">
+                        🐶 Ver Perros
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var m in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card-mascota">
+                    <img src="@m.Imagen" alt="@m.Nombre" />
+                    <h3>@m.Nombre</h3>
+                    <p><strong>Especie:</strong> @m.Especie</p>
+                    <p><strong>Edad:</strong> @m.Edad años</p>
+                    <p><strong>Estado:</strong> @m.Estado</p>
+
+                    <a asp-controller="Mascotas" asp-action="Detalle" asp-route-id="@m.Id" class="btn btn-primary">
+                        ¡Preguntá por mí!
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-info text-center" role="alert">
+                <h4 class="alert-heading">¡Oops! 😿</h4>
+                <p>No hay @tipoMascota.ToLower() disponibles para adopción en este momento.</p>
+                <hr>
+                <p class="mb-0">
+                    <a asp-controller="Mascotas" asp-action="Index" class="btn btn-primary">
+                        Ver todas las mascotas disponibles
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+}

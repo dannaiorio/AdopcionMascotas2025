@@ -10,14 +10,29 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/Admin/Mascotas">Panel Admin</a>
+        <a class="navbar-brand" href="/Admin/Mascotas">🔧 Panel Admin</a>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/Admin/Mascotas">Mascotas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">Ir al sitio público</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        👤 @Context.Session.GetString("AdminUsername")
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Auth", new { area = "Admin" })" 
+                               onclick="return confirm('¿Estás seguro que deseas cerrar sesión?')">
+                                🚪 Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -50,6 +65,13 @@
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .dropdown-item:hover {
+            background-color: #e9ecef;
+            color: #1e2125;
+        }
+    </style>
 
     <!-- Script para ocultar automáticamente -->
     <script>

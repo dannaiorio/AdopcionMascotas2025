@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AdopcionMascotas.Data;
 using AdopcionMascotas.Models;
+using AdopcionMascotas.Attributes;
 
 namespace AdopcionMascotas.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //Requiere autenticacion de admin para acceder a las acciones del controlador
+    [AdminAuthRequired]
     public class MascotasController : Controller
     {
         private readonly AppDbContext _context;

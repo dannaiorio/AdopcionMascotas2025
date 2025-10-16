@@ -12,8 +12,13 @@
     </div>
 
     <div class="form-group">
-        <label>Especie</label>
-        <select asp-for="Especie" class="form-control" asp-items="Html.GetEnumSelectList<AdopcionMascotas.Models.EspecieMascota>()"></select>
+        <label asp-for="Especie" class="control-label">Especie</label>
+        @Html.DropDownListFor(
+            model => model.Especie,
+            new SelectList(Enum.GetValues(typeof(AdopcionMascotas.Models.EspecieMascota))),
+            "-- Seleccionar especie --",
+            new { @class = "form-control" })
+        <span asp-validation-for="Especie" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -22,8 +27,13 @@
     </div>
 
     <div class="form-group">
-        <label>Estado</label>
-        <select asp-for="Estado" class="form-control" asp-items="Html.GetEnumSelectList<AdopcionMascotas.Models.EstadoMascota>()"></select>
+    <label asp-for="Estado" class="control-label">Estado</label>
+    @Html.DropDownListFor(
+        model => model.Estado,
+        new SelectList(Enum.GetValues(typeof(AdopcionMascotas.Models.EstadoMascota))),
+        "-- Seleccionar estado --",
+        new { @class = "form-control" })
+    <span asp-validation-for="Estado" class="text-danger"></span>
     </div>
 
     <div class="form-group">

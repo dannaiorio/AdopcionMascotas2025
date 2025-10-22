@@ -75,3 +75,67 @@ h1, h2, h3 {
         .card-mascota button:hover {
             background-color: #1b6ec2;
         }
+
+
+/* Formulario de contacto */
+
+.card-formulario {
+    max-width: 500px;
+    margin: 40px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .card-formulario:hover {
+        transform: scale(1.01);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card-formulario h2 {
+        color: #258cfb;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .card-formulario label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .card-formulario input,
+    .card-formulario textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+    }
+
+        .card-formulario input:focus,
+        .card-formulario textarea:focus {
+            border-color: #258cfb;
+            outline: none;
+            box-shadow: 0 0 5px rgba(37, 140, 251, 0.3);
+        }
+
+    .card-formulario button {
+        background-color: #258cfb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 15px;
+        font-weight: bold;
+        width: 100%;
+        transition: background-color 0.2s;
+    }
+
+        .card-formulario button:hover {
+            background-color: #1b6ec2;
+        }

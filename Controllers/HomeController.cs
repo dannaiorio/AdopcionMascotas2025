@@ -29,5 +29,18 @@ namespace AdopcionMascotas.Controllers
             return View();
         }
 
+        //Agrego conexion al formulario de contacto
+        public IActionResult FormContacto()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FormContacto(string nombre, string email, string telefono, string mensaje)
+        {
+            ViewBag.Mensaje = $"Gracias por contactarte, {nombre}. Te responderemos al {telefono} o por correo.";
+            return View();
+        }
+
     }
 }

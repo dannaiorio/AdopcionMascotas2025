@@ -5,7 +5,7 @@
 namespace AdopcionMascotas.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InicialCompleta : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,9 @@ namespace AdopcionMascotas.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Especie = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Edad = table.Column<int>(type: "int", nullable: false),
-                    Imagen = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Especie = table.Column<int>(type: "int", nullable: false),
                     Estado = table.Column<int>(type: "int", nullable: false),
+                    Edad = table.Column<int>(type: "int", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -34,9 +33,18 @@ namespace AdopcionMascotas.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreSolicitante = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NombreApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Respuestas = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ciudad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DireccionAprox = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TipoVivienda = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EspacioExterior = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OtrasMascotas = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Motivo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CuidadoDiario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Seguimiento = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comentario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MascotaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

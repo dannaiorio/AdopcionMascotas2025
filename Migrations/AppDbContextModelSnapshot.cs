@@ -16,7 +16,7 @@ namespace AdopcionMascotas.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -42,10 +42,6 @@ namespace AdopcionMascotas.Migrations
                     b.Property<int>("Estado")
                         .HasColumnType("int");
 
-                    b.Property<string>("Imagen")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -53,48 +49,6 @@ namespace AdopcionMascotas.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Mascotas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Descripcion = "Perro juguetón y sociable",
-                            Edad = 3,
-                            Especie = 1,
-                            Estado = 0,
-                            Imagen = "/images/placeholder.jpg",
-                            Nombre = "Firulais"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Descripcion = "Perra tranquila y cariñosa",
-                            Edad = 5,
-                            Especie = 1,
-                            Estado = 0,
-                            Imagen = "/images/placeholder.jpg",
-                            Nombre = "Luna"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Descripcion = "Gato curioso y activo",
-                            Edad = 2,
-                            Especie = 2,
-                            Estado = 0,
-                            Imagen = "/images/placeholder.jpg",
-                            Nombre = "Michi"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Descripcion = "Gata blanca muy mimosa",
-                            Edad = 4,
-                            Especie = 2,
-                            Estado = 1,
-                            Imagen = "/images/placeholder.jpg",
-                            Nombre = "Nieve"
-                        });
                 });
 
             modelBuilder.Entity("AdopcionMascotas.Models.SolicitudAdopcion", b =>
@@ -105,18 +59,54 @@ namespace AdopcionMascotas.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Ciudad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comentario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CuidadoDiario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DireccionAprox")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EspacioExterior")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MascotaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NombreSolicitante")
+                    b.Property<string>("Motivo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Respuestas")
+                    b.Property<string>("NombreApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtrasMascotas")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Seguimiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoVivienda")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

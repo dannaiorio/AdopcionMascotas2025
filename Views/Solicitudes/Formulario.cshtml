@@ -1,0 +1,112 @@
+﻿@model AdopcionMascotas.Models.SolicitudAdopcion
+@{
+    ViewData["Title"] = "Formulario de Adopción";
+    var mascota = ViewBag.Mascota as AdopcionMascotas.Models.Mascota;
+}
+
+<h2 class="mb-4 text-center">🐾 Adoptar a @mascota.Nombre</h2>
+
+<form asp-action="EnviarFormulario" method="post">
+
+    <input type="hidden" asp-for="MascotaId" value="@mascota.Id" />
+
+    <div class="mb-3">
+        <label asp-for="NombreApellido" class="form-label"></label>
+        <input asp-for="NombreApellido" class="form-control" />
+        <span asp-validation-for="NombreApellido" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="Telefono" class="form-label"></label>
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Ciudad" class="form-label"></label>
+            <input asp-for="Ciudad" class="form-control" />
+            <span asp-validation-for="Ciudad" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="DireccionAprox" class="form-label"></label>
+            <input asp-for="DireccionAprox" class="form-control" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TipoVivienda" class="form-label"></label>
+        <select asp-for="TipoVivienda" class="form-select">
+            <option value="">Seleccione...</option>
+            <option>Casa</option>
+            <option>Departamento</option>
+        </select>
+        <span asp-validation-for="TipoVivienda" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EspacioExterior" class="form-label"></label>
+        <select asp-for="EspacioExterior" class="form-select">
+            <option value="">Seleccione...</option>
+            <option>Patio</option>
+            <option>Balcón</option>
+            <option>Ninguno</option>
+        </select>
+        <span asp-validation-for="EspacioExterior" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="OtrasMascotas" class="form-label"></label>
+        <select asp-for="OtrasMascotas" class="form-select">
+            <option value="">Seleccione...</option>
+            <option>Sí</option>
+            <option>No</option>
+        </select>
+        <span asp-validation-for="OtrasMascotas" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Motivo" class="form-label"></label>
+        <textarea asp-for="Motivo" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Motivo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CuidadoDiario" class="form-label"></label>
+        <select asp-for="CuidadoDiario" class="form-select">
+            <option value="">Seleccione...</option>
+            <option>Sí</option>
+            <option>No</option>
+        </select>
+        <span asp-validation-for="CuidadoDiario" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Seguimiento" class="form-label"></label>
+        <select asp-for="Seguimiento" class="form-select">
+            <option value="">Seleccione...</option>
+            <option>Sí</option>
+            <option>No</option>
+        </select>
+        <span asp-validation-for="Seguimiento" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Comentario" class="form-label"></label>
+        <textarea asp-for="Comentario" class="form-control" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Enviar solicitud 🐶</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

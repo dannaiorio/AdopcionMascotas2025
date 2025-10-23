@@ -11,12 +11,13 @@
                     <h4>🔐 Acceso Administrador</h4>
                 </div>
                 <div class="card-body">
-                    @if (!string.IsNullOrEmpty(ViewBag.Error))
+                    @if (ViewBag.Error != null && !string.IsNullOrEmpty(ViewBag.Error.ToString()))
                     {
                         <div class="alert alert-danger" role="alert">
                             @ViewBag.Error
                         </div>
                     }
+
 
                     <form method="post" asp-action="Login" asp-controller="Auth" asp-area="Admin">
                         <div class="mb-3">

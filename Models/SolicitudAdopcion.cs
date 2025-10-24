@@ -45,5 +45,11 @@ namespace AdopcionMascotas.Models
         public string Seguimiento { get; set; }
 
         public string Comentario { get; set; }
+
+        // Relación con Mascota (para poder acceder al nombre, especie, etc.)
+        public Mascota? Mascota { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime FechaSolicitud { get; set; } = DateTime.Now;
+
     }
 }

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AdopcionMascotas.Models.SolicitudAdopcion>
+
+<h2 class="text-primary mb-3">📋 Solicitudes de Adopción</h2>
+
+<table class="table table-striped text-center align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Mascota</th>
+            <th>Adoptante</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Ciudad</th>
+            <th>Tipo Vivienda</th>
+            <th>Espacio Exterior</th>
+            <th>Otras Mascotas</th>
+            <th>Motivo</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Mascota?.Nombre</td>
+                <td>@s.NombreApellido</td>
+                <td>@s.Email</td>
+                <td>@s.Telefono</td>
+                <td>@s.Ciudad</td>
+                <td>@s.TipoVivienda</td>
+                <td>@s.EspacioExterior</td>
+                <td>@s.OtrasMascotas</td>
+                <td>@s.Motivo</td>
+                <td>@s.FechaSolicitud.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

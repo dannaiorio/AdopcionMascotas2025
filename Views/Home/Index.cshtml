@@ -4,5 +4,139 @@
 
 <div class="text-center">
     <h1 class="display-4">Animalia</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<!--Importe tipografia --
+<style>
+<link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700&display=swap" rel="stylesheet">
+
+
+@{
+    ViewData["Title"] = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Sección principal de inicio con fondo de huellas -->
+<section class="inicio">
+    <!-- Contenido principal: texto e imagen -->
+    <div class="contenido">
+        <div class="texto">
+            <p>
+                <strong>
+                    En nuestro refugio creemos que cada mascota merece un hogar lleno de cariño.
+                    Rescatamos, cuidamos y preparamos a perros y gatos para que puedan tener una segunda oportunidad.
+                    Adoptar no solo cambia su vida, también transforma la tuya.
+                    Explorá nuestras secciones y conocé a los peludos que están esperando una familia.
+                    ¡Tu nuevo mejor amigo te está buscando!
+                </strong>
+            </p>
+            <p class="instagram">🐾 <strong>Animalia</strong></p>
+        </div>
+    </div>
+
+    <div class="imagen">
+        <img src="/images/NewFolder/mascotas inicio.png" alt="Mascotas felices">
+    </div>
+    </div>
+</section>
+
+<!-- Estilos -->
+<style>
+    body {
+        background-color: #ffffff;
+        background-image: url('/images/NewFolder/fondo huellas.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: 'Life Savers', cursive;
+    }
+
+    .contenedor-superior {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px auto;
+        border-bottom: 2px dotted #bdaec7;
+        padding: 0 40px;
+    }
+
+    .huella {
+        width: 60px;
+    }
+
+    .menu-superior a {
+        background-color: #efe8e2;
+        color: #4a305a;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 10px 25px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+        .menu-superior a:hover {
+            background-color: #7a3ca3;
+            color: #fff;
+        }
+
+    .btn-admin {
+        background-color: #7a3ca3;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        margin-left: 20px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .btn-admin:hover {
+            background-color: #9c54c3;
+            transform: scale(1.05);
+        }
+
+    .contenido {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 40px 80px;
+    }
+
+    .texto {
+        flex: 1;
+        font-size: 1.1rem;
+        color: #3a2f3c;
+        line-height: 1.7;
+    }
+
+    .imagen {
+        flex: 1;
+        text-align: right;
+    }
+
+        .imagen img {
+            width: 80%;
+        }
+
+    .instagram {
+        margin-top: 40px;
+        color: #5c326c;
+        font-weight: 600;
+    }
+
+    (max-width: 768px) {
+        .contenido
+
+    {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagen img {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    }
+</style>

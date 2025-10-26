@@ -8,44 +8,44 @@
     <!-- CSS propio -->
     <link rel="stylesheet" href="~/css/site.css" />
 
-    <!-- Bootstrap -->
+    <!-- Fuente Life Savers -->
+    <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap (opcional, por si lo usás en otras vistas) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header / Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">🐾 Refugio</a>
-                <div>
-                    <a class="nav-link text-white" asp-controller="Home" asp-action="Index">Inicio</a>
-                    <a class="nav-link text-white" asp-controller="Mascota" asp-action="Index">Mascotas</a>
-                    <a class="nav-link text-white" asp-controller="Home" asp-action="Privacy">Privacidad</a>
-                    <a class="nav-link text-white" asp-area="Admin" asp-controller="Mascota" asp-action="Index">Panel Admin</a>
+        <div class="contenedor-superior">
+            <img src="/images/NewFolder/huella violeta.png" alt="Huella izquierda" class="huella izq">
 
+            <nav class="menu-superior">
+                <a asp-area="" asp-controller="Mascotas" asp-action="Index">ADOPTÁ</a>
+                <a asp-area="" asp-controller="Home" asp-action="Info">INFO</a>
+                <a asp-area="" asp-controller="Home" asp-action="Donar">DONÁ</a>
+                <a asp-area="" asp-controller="Mascotas" asp-action="Adoptados">ADOPTADOS</a>
+                <a asp-area="Admin" asp-controller="Auth" asp-action="Login" class="btn-admin">SECCIÓN ADMIN</a>
+            </nav>
 
-                </div>
-            </div>
-        </nav>
+            <img src="/images/NewFolder/huella violeta.png" alt="Huella derecha" class="huella der">
+        </div>
     </header>
-
-
 
     <!-- Contenido de cada página -->
     <main class="container mt-4">
         @RenderBody()
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-light text-center py-3 mt-5">
+    <footer class="footer-fijo">
         <p>&copy; 2025 - Refugio de Mascotas</p>
-        <a class="text-decoration-none text-primary" href="/Admin/Mascotas">🔧 Sección Admin</a>
+        <a href="/Admin/Mascotas"
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    @RenderSection("Scripts", required: false)
-
 </body>
 </html>
-//prueba
+
+

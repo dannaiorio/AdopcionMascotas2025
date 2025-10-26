@@ -41,6 +41,16 @@ namespace AdopcionMascotas.Controllers
             ViewBag.Mensaje = $"Gracias por contactarte, {nombre}. Te responderemos al {telefono} o por correo.";
             return View();
         }
+       // agrego boton info
+        public IActionResult Info()
+        {
+            return View();
+        }
+
+        public IActionResult Dona()
+        {
+            return View();
+        }
 
     }
 }

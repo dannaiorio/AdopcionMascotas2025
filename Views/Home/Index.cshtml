@@ -1,26 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Refugio de Animales";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Animalia</h1>
-</div>
-
-<!--Importe tipografia --
-<style>
-<link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700&display=swap" rel="stylesheet">
-
-
-@{
-    ViewData["Title"] = "Inicio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!-- Sección principal de inicio con fondo de huellas -->
 <section class="inicio">
-    <!-- Contenido principal: texto e imagen -->
     <div class="contenido">
+        <!-- Texto a la izquierda -->
         <div class="texto">
+            <h1 class="titulo">🐾 Animalia</h1>
             <p>
                 <strong>
                     En nuestro refugio creemos que cada mascota merece un hogar lleno de cariño.
@@ -32,37 +20,81 @@
             </p>
             <p class="instagram">🐾 <strong>Animalia</strong></p>
         </div>
-    </div>
 
-    <div class="imagen">
-        <img src="/images/NewFolder/mascotas inicio.png" alt="Mascotas felices">
-    </div>
+        <!-- Imagen a la derecha -->
+        <div class="imagen">
+            <img src="/images/NewFolder/mascotas inicio.png" alt="Mascotas felices">
+        </div>
     </div>
 </section>
 
 <!-- Estilos -->
 <style>
+    /* Fondo y tipografía */
     body {
         background-color: #ffffff;
         background-image: url('/images/NewFolder/fondo huellas.jpg');
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         font-family: 'Life Savers', cursive;
+        color: #3a2f3c;
     }
 
-    .contenedor-superior {
+    /* Sección principal */
+    .inicio {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        margin: 20px auto;
-        border-bottom: 2px dotted #bdaec7;
-        padding: 0 40px;
+        min-height: 85vh;
+        padding: 40px 60px;
     }
 
-    .huella {
-        width: 60px;
+    /* Contenedor */
+    .contenido {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        gap: 40px;
     }
 
+    /* Texto a la izquierda */
+    .texto {
+        flex: 1;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+    .titulo {
+        color: #7a3ca3;
+        font-weight: 700;
+        font-size: 3rem;
+        margin-bottom: 25px;
+    }
+
+    .instagram {
+        margin-top: 30px;
+        color: #5c326c;
+        font-weight: 600;
+        font-size: 1.3rem;
+    }
+
+    /* Imagen a la derecha */
+    .imagen {
+        flex: 1;
+        text-align: right;
+    }
+
+        .imagen img {
+            width: 90%;
+            max-width: 500px;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15));
+        }
+
+    /* Botones y menú */
     .menu-superior a {
         background-color: #efe8e2;
         color: #4a305a;
@@ -96,36 +128,8 @@
             transform: scale(1.05);
         }
 
-    .contenido {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 40px 80px;
-    }
-
-    .texto {
-        flex: 1;
-        font-size: 1.1rem;
-        color: #3a2f3c;
-        line-height: 1.7;
-    }
-
-    .imagen {
-        flex: 1;
-        text-align: right;
-    }
-
-        .imagen img {
-            width: 80%;
-        }
-
-    .instagram {
-        margin-top: 40px;
-        color: #5c326c;
-        font-weight: 600;
-    }
-
-    (max-width: 768px) {
+    /* Responsivo */
+   (max-width: 768px) {
         .contenido
 
     {
@@ -133,9 +137,22 @@
         text-align: center;
     }
 
-    .imagen img {
-        width: 100%;
-        margin-top: 20px;
+    .texto {
+        padding-right: 0;
+    }
+
+    .imagen {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+        .imagen img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+    .titulo {
+        font-size: 2.2rem;
     }
 
     }

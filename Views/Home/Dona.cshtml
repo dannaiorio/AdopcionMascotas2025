@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Donar";
+}
+
+<style>
+    /* --- Estilos específicos de la vista Donar --- */
+    .donar-page {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: 'Life Savers', cursive;
+    }
+
+        .donar-page h1 {
+            color: #7a3ca3;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center; /* título centrado */
+        }
+
+        .donar-page p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            text-align: left; /* ✅ texto alineado izquierda */
+            margin: 0 auto;
+            max-width: 750px;
+        }
+
+    /* --- Botón con mismo estilo que Info --- */
+    .btn-volver {
+        display: inline-block;
+        background-color: #7a3ca3; /* color principal */
+        color: #fff !important;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 700;
+        font-family: 'Life Savers', cursive;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-volver:hover {
+            background-color: #6c757d; /* gris al pasar el cursor */
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+    /* --- Fuente unificada también en el menú superior --- */
+    .menu-superior a,
+    .btn-admin {
+        font-family: 'Life Savers', cursive;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+    }
+</style>
+
+<div class="donar-page container">
+    <h1>Doná y ayudá a transformar vidas 🐾</h1>
+
+    <p><strong>DATOS BANCARIOS:</strong></p>
+
+    <p class="mt-3">
+        BANCO: BANCO NACIÓN<br>
+        TITULAR: ASOCIACIÓN CIVIL ANIMALIA<br>
+        CUIT: 30-71569845-9<br>
+        CBU: 2850590940090418135201<br>
+        ALIAS: REFUGIO.ANIMALIA<br>
+        CUENTA: 950-098784/3
+    </p>
+
+    <p><strong>MERCADO PAGO:</strong> REFUGIOANIMALIA.MP</p>
+
+    <p>
+        Si realizás una transferencia, podés enviarnos el comprobante por WhatsApp o email
+        para agradecerte personalmente.
+    </p>
+
+ 
+    <!-- Botón de retorno al inicio del sitio -->
+    <a href="@Url.Action("Index", "Home", new { area = "" })" class="btn btn-outline-secondary">
+        ← Volver al sitio principal
+    </a>
+    </div>
+</div>
+<style>
+    /* Personalización de la tarjeta y del botón */
+    .card {
+        border-radius: 10px;
+        border: 1px solid #dcdcdc;
+    }
+
+    .card-header {
+        background-color: #7a3ca3 !important; /* tono violeta institucional */
+        border-radius: 10px 10px 0 0;
+    }
+
+    .btn-primary {
+        background-color: #7a3ca3;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #9c54c3;
+            transform: scale(1.03);
+        }
+
+    .btn-outline-secondary {
+        border-radius: 30px;
+    }
+
+    body {
+        background-color: #ffffff;
+        background-image: url('/images/NewFolder/fondo huellas.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: 'Life Savers', cursive;
+    }
+</style>
+
+
+

@@ -8,44 +8,106 @@
     <!-- CSS propio -->
     <link rel="stylesheet" href="~/css/site.css" />
 
-    <!-- Bootstrap -->
+    <!-- Fuente Life Savers -->
+    <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap (opcional, por si lo usás en otras vistas) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Fondo global de toda la aplicación */
+        body.fondo-huellas {
+            background-image: url('/images/fondo-huellas.png'); /* Ajustá el nombre según tu archivo real */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #f8f9fa; /* Color de respaldo si la imagen no carga */
+        }
+
+        /* Asegura que el contenido se mantenga legible */
+        main.container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-fijo {
+            text-align: center;
+            padding: 1rem 0;
+            color: #555;
+        }
+
+        .btn-admin {
+            background-color: #7a3ca3;
+            color: #fff !important;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-admin:hover {
+                background-color: #9c54c3;
+                transform: scale(1.05);
+            }
+
+        .huella {
+            width: 70px;
+            mix-blend-mode: multiply; /* VER NO QUEDA SIN FONDO DEBO */
+            opacity: 0.9; 
+        }
+
+        .contenedor-superior {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+        }
+
+        .menu-superior a {
+            margin: 0 10px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #7a3ca3;
+        }
+
+            .menu-superior a:hover {
+                color: #9c54c3;
+            }
+    </style>
 </head>
-<body>
+
+<body class="fondo-huellas">
     <!-- Header / Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">🐾 Refugio</a>
-                <div>
-                    <a class="nav-link text-white" asp-controller="Home" asp-action="Index">Inicio</a>
-                    <a class="nav-link text-white" asp-controller="Mascota" asp-action="Index">Mascotas</a>
-                    <a class="nav-link text-white" asp-controller="Home" asp-action="Privacy">Privacidad</a>
-                    <a class="nav-link text-white" asp-area="Admin" asp-controller="Mascota" asp-action="Index">Panel Admin</a>
+        <div class="contenedor-superior">
+            <img src="/images/NewFolder/huella violeta3.png" alt="Huella izquierda" class="huella izq">
+            <nav class="menu-superior">
+                <a asp-area="" asp-controller="Mascotas" asp-action="Index">ADOPTÁ</a>
+                <a asp-area="" asp-controller="Home" asp-action="Info">INFO</a>
+                <a asp-area="" asp-controller="Home" asp-action="Dona">DONÁ</a>
+                <a asp-area="" asp-controller="Mascotas" asp-action="Adoptados">ADOPTADOS</a>
+                <a asp-area="Admin" asp-controller="Auth" asp-action="Login" class="btn-admin">SECCIÓN ADMIN</a>
+            </nav>
 
-
-                </div>
-            </div>
-        </nav>
+            <img src="/images/NewFolder/huella violeta3.png" alt="Huella derecha" class="huella der">
+        </div>
     </header>
-
-
 
     <!-- Contenido de cada página -->
     <main class="container mt-4">
         @RenderBody()
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-light text-center py-3 mt-5">
+    <footer class="footer-fijo">
         <p>&copy; 2025 - Refugio de Mascotas</p>
-        <a class="text-decoration-none text-primary" href="/Admin/Mascotas">🔧 Sección Admin</a>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    @RenderSection("Scripts", required: false)
-
 </body>
 </html>
-//prueba
+
+
+

@@ -1,5 +1,6 @@
-﻿<link rel="stylesheet" href="~/css/site.css" / >
+﻿
 /* === ESTILO GENERAL === */
+
 html {
     font-size: 14px;
 }
@@ -209,19 +210,7 @@ h1, h2, h3 {
             transform: scale(1.05);
         }
 
-.btn-admin {
-    background-color: #e6d3f0;
-    color: #7a3ca3 !important;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
 
-    .btn-admin:hover {
-        background-color: #9c54c3;
-        color: #fff !important;
-    }
 
 
 

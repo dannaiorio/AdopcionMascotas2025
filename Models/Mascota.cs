@@ -9,14 +9,17 @@ namespace AdopcionMascotas.Models
     public class Mascota
     {
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public required string Nombre { get; set; }
         public EspecieMascota Especie { get; set; }
         public EstadoMascota Estado { get; set; }
         public int Edad { get; set; }
-        public string Descripcion { get; set; }
-       
+        public required string Descripcion { get; set; }
+
+        public string? ImagenUrl { get; set; }
+
+        [NotMapped]
+        [ValidateNever]
+        public IFormFile? ImagenFile { get; set; }
     }
-
-
 }
 

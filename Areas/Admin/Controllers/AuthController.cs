@@ -16,9 +16,9 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
         {
             if (HttpContext.Session.GetString("AdminLoggedIn") == "true")
             {
-                return RedirectToAction("Index", "Mascotas");
+                return RedirectToAction("Index", "Mascota");
             }
-            
+
             return View();
         }
 
@@ -36,7 +36,7 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
                 HttpContext.Session.SetString("AdminLoggedIn", "true");
                 HttpContext.Session.SetString("AdminUsername", username);
 
-                return RedirectToAction("Index", "Mascotas");
+                return RedirectToAction("Index", "Mascota");
             }
 
             ViewBag.Error = "Usuario o contraseña incorrectos";
@@ -50,8 +50,8 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
             HttpContext.Session.Clear();
             HttpContext.Session.Remove("AdminLoggedIn");
             HttpContext.Session.Remove("AdminUsername");
-            
-            
+
+
             return RedirectToAction("Login");
         }
     }

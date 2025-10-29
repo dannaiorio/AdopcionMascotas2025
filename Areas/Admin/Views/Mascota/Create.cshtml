@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
@@ -44,6 +44,18 @@
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ImagenFile" class="control-label">Imagen</label>
+                <input asp-for="ImagenFile" class="form-control" type="file" accept=".jpg,.jpeg,.png" id="imageInput" />
+                <span asp-validation-for="ImagenFile" class="text-danger"></span>
+                <small class="form-text text-muted">Formatos permitidos: JPG, PNG (máximo 5MB)</small>
+
+                <!-- Previsualizacion -->
+                <div id="imagePreview" style="margin-top: 10px; display: none;">
+                    <img id="previewImg" src="" alt="Vista previa"
+                        style="max-width: 200px; max-height: 200px; border-radius: 8px; border: 1px solid #dee2e6;" />
+                </div>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -54,6 +66,27 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImg.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = 'none';
+        }
+    });
+</script>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

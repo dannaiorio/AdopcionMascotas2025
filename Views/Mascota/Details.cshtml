@@ -9,46 +9,84 @@
 <div>
     <h4>Mascota</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Especie)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Especie)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        
 
-    </dl>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body text-center">
+                    @if (!string.IsNullOrEmpty(Model.ImagenUrl))
+                    {
+                        <img src="@Model.ImagenUrl" alt="@Model.Nombre" class="img-fluid rounded"
+                            style="max-height: 450px; width: 100%; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <div
+                            style="height: 350px; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center; color: #6c757d;">
+                                <div style="font-size: 72px; margin-bottom: 15px;">🐾</div>
+                                <h5>¡Conóceme!</h5>
+                                <p>Próximamente tendrás mi foto</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-controller="Solicitudes" asp-action="Formulario" asp-route-idMascota="@Model.Id"
+                    class="btn btn-success btn-lg">
+                    🐾 ¡Adoptame!
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-primary mb-4">@Html.DisplayFor(model => model.Nombre)</h3>
+
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            <i class="fas fa-paw"></i> @Html.DisplayNameFor(model => model.Especie)
+                        </dt>
+                        <dd class="col-sm-8">
+                            <span class="badge bg-primary text-white fs-6">@Html.DisplayFor(model => model.Especie)</span>
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="fas fa-heart"></i> @Html.DisplayNameFor(model => model.Estado)
+                        </dt>
+                        <dd class="col-sm-8">
+                            <span class="badge bg-success text-white fs-6">@Html.DisplayFor(model => model.Estado)</span>
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="fas fa-birthday-cake"></i> @Html.DisplayNameFor(model => model.Edad)
+                        </dt>
+                        <dd class="col-sm-8">
+                            <strong>@Html.DisplayFor(model => model.Edad) años</strong>
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="fas fa-info-circle"></i> @Html.DisplayNameFor(model => model.Descripcion)
+                        </dt>
+                        <dd class="col-sm-8">
+                            <p class="text-muted">@Html.DisplayFor(model => model.Descripcion)</p>
+                        </dd>
+                    </dl>
+
+                    <div class="alert alert-info mt-4">
+                        <h5><i class="fas fa-home"></i> ¿Quieres darme un hogar?</h5>
+                        <p class="mb-0">¡Completa el formulario de adopción y pronto podremos conocernos!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
-    
-    <a asp-action="Index">Back to List</a>
-    <a asp-controller="Solicitudes" asp-action="Formulario" asp-route-idMascota="@Model.Id"
-       class="btn btn-success mt-3"> 🐾 ¡Adoptame!
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Volver a la lista
     </a>
-
 </div>

@@ -11,6 +11,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Imagen</th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
@@ -34,6 +35,18 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImagenUrl))
+                    {
+                        <img src="@item.ImagenUrl" alt="@item.Nombre" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" />
+                    }
+                    else
+                    {
+                        <div style="width: 60px; height: 60px; background-color: #f8f9fa; border: 1px dashed #dee2e6; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: #6c757d; font-size: 12px;">Sin imagen</span>
+                        </div>
+                    }
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>

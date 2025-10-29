@@ -51,14 +51,47 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
         }
 
         // POST: Admin/Mascota/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Especie,Estado,Edad,Descripcion")] Mascota mascota)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Especie,Estado,Edad,Descripcion,ImagenFile")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
+                if (mascota.ImagenFile != null && mascota.ImagenFile.Length > 0)
+                {
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                    var fileExtension = Path.GetExtension(mascota.ImagenFile.FileName).ToLower();
+
+                    if (!allowedExtensions.Contains(fileExtension))
+                    {
+                        ModelState.AddModelError("ImagenFile", "Solo se permiten archivos JPG y PNG.");
+                        return View(mascota);
+                    }
+
+                    if (mascota.ImagenFile.Length > 5 * 1024 * 1024)
+                    {
+                        ModelState.AddModelError("ImagenFile", "El archivo no puede ser mayor a 5MB.");
+                        return View(mascota);
+                    }
+
+                    var fileName = Guid.NewGuid().ToString() + fileExtension;
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imagenes");
+
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    var filePath = Path.Combine(uploadsFolder, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await mascota.ImagenFile.CopyToAsync(stream);
+                    }
+
+                    mascota.ImagenUrl = "/imagenes/" + fileName;
+                }
+
                 _context.Add(mascota);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,7 +120,7 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Especie,Estado,Edad,Descripcion")] Mascota mascota)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Especie,Estado,Edad,Descripcion,ImagenUrl,ImagenFile")] Mascota mascota)
         {
             if (id != mascota.Id)
             {
@@ -98,6 +131,50 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
             {
                 try
                 {
+                    if (mascota.ImagenFile != null && mascota.ImagenFile.Length > 0)
+                    {
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                        var fileExtension = Path.GetExtension(mascota.ImagenFile.FileName).ToLower();
+
+                        if (!allowedExtensions.Contains(fileExtension))
+                        {
+                            ModelState.AddModelError("ImagenFile", "Solo se permiten archivos JPG y PNG.");
+                            return View(mascota);
+                        }
+
+                        if (mascota.ImagenFile.Length > 5 * 1024 * 1024)
+                        {
+                            ModelState.AddModelError("ImagenFile", "El archivo no puede ser mayor a 5MB.");
+                            return View(mascota);
+                        }
+
+                        if (!string.IsNullOrEmpty(mascota.ImagenUrl))
+                        {
+                            var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", mascota.ImagenUrl.TrimStart('/'));
+                            if (System.IO.File.Exists(oldImagePath))
+                            {
+                                System.IO.File.Delete(oldImagePath);
+                            }
+                        }
+
+                        var fileName = Guid.NewGuid().ToString() + fileExtension;
+                        var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imagenes");
+
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+
+                        var filePath = Path.Combine(uploadsFolder, fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await mascota.ImagenFile.CopyToAsync(stream);
+                        }
+
+                        mascota.ImagenUrl = "/imagenes/" + fileName;
+                    }
+
                     _context.Update(mascota);
                     await _context.SaveChangesAsync();
                 }

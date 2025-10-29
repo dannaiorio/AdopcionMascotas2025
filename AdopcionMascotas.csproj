@@ -8,9 +8,17 @@
 
   <ItemGroup>
     <Compile Remove="NewFolder\**" />
+    <Compile Remove="wwwroot\imagenes\Gatos\**" />
+    <Compile Remove="wwwroot\imagenes\Perros\**" />
     <Content Remove="NewFolder\**" />
+    <Content Remove="wwwroot\imagenes\Gatos\**" />
+    <Content Remove="wwwroot\imagenes\Perros\**" />
     <EmbeddedResource Remove="NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\imagenes\Gatos\**" />
+    <EmbeddedResource Remove="wwwroot\imagenes\Perros\**" />
     <None Remove="NewFolder\**" />
+    <None Remove="wwwroot\imagenes\Gatos\**" />
+    <None Remove="wwwroot\imagenes\Perros\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,8 +42,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\imagenes\Gatos\" />
-    <Folder Include="wwwroot\imagenes\Perros\" />
   </ItemGroup>
 
 </Project>

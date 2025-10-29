@@ -3,11 +3,13 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Panel Admin - Refugio de Mascotas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/Admin/Mascota">🔧 Panel Admin</a>
@@ -28,13 +30,14 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         👤 @Context.Session.GetString("AdminUsername")
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("Logout", "Auth", new { area = "Admin" })" 
-                               onclick="return confirm('¿Estás seguro que deseas cerrar sesión?')">
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Auth", new { area = "Admin" })"
+                                onclick="return confirm('¿Estás seguro que deseas cerrar sesión?')">
                                 🚪 Cerrar Sesión
                             </a>
                         </li>
@@ -72,13 +75,6 @@
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
-        .dropdown-item:hover {
-            background-color: #e9ecef;
-            color: #1e2125;
-        }
-    </style>
-
     <!-- Script para ocultar automáticamente -->
     <script>
         setTimeout(function () {
@@ -93,4 +89,5 @@
     @RenderSection("Scripts", required: false)
 
 </body>
+
 </html>

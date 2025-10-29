@@ -34,6 +34,8 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\imagenes\Gatos\" />
+    <Folder Include="wwwroot\imagenes\Perros\" />
   </ItemGroup>
 
 </Project>

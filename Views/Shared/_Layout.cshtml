@@ -17,7 +17,7 @@
     <style>
         /* Fondo global de toda la aplicación */
         body.fondo-huellas {
-            background-image: url('/images/fondo-huellas.png'); /* Ajustá el nombre según tu archivo real */
+            
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -25,13 +25,8 @@
             background-color: #f8f9fa; /* Color de respaldo si la imagen no carga */
         }
 
-        /* Asegura que el contenido se mantenga legible */
-        main.container {
-            background-color: rgba(255, 255, 255, 0.85);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+
+      
 
         .footer-fijo {
             text-align: center;
@@ -54,7 +49,7 @@
 
         .huella {
             width: 70px;
-            mix-blend-mode: multiply; /* VER NO QUEDA SIN FONDO DEBO */
+            mix-blend-mode: multiply; 
             opacity: 0.9; 
         }
 
@@ -75,25 +70,26 @@
             .menu-superior a:hover {
                 color: #9c54c3;
             }
+
     </style>
 </head>
 
 <body class="fondo-huellas">
     <!-- Header / Navbar -->
-    <header>
-        <div class="contenedor-superior">
-            <img src="/images/NewFolder/huella violeta3.png" alt="Huella izquierda" class="huella izq">
+    <header class="header-huellas">
+        <div class="huellas-laterales">
+            <img src="/images/NewFolder/huella violeta3.png" alt="Huella izquierda" class="huella">
             <nav class="menu-superior">
-                <a asp-area="" asp-controller="Mascotas" asp-action="Index">ADOPTÁ</a>
+                <a asp-area="" asp-controller="Mascota" asp-action="Index">ADOPTÁ</a>
                 <a asp-area="" asp-controller="Home" asp-action="Info">INFO</a>
                 <a asp-area="" asp-controller="Home" asp-action="Dona">DONÁ</a>
-                <a asp-area="" asp-controller="Mascotas" asp-action="Adoptados">ADOPTADOS</a>
+                <a asp-area="" asp-controller="Mascota" asp-action="Adoptados">ADOPTADOS</a>
                 <a asp-area="Admin" asp-controller="Auth" asp-action="Login" class="btn-admin">SECCIÓN ADMIN</a>
             </nav>
-
-            <img src="/images/NewFolder/huella violeta3.png" alt="Huella derecha" class="huella der">
+            <img src="/images/NewFolder/huella violeta3.png" alt="Huella derecha" class="huella">
         </div>
     </header>
+
 
     <!-- Contenido de cada página -->
     <main class="container mt-4">
@@ -106,6 +102,8 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
 

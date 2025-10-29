@@ -1,89 +1,82 @@
-<link rel="stylesheet" href="~/css/site.css" / >
-
-
+ï»¿<link rel="stylesheet" href="~/css/site.css" / >
+/* === ESTILO GENERAL === */
 html {
     font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #3c2a4d;
+    background-color: #faf7fc;
 }
 
-/* Texto general */
-body {
-    margin-bottom: 60px; /* lo que ya estaba */
-    color: #333; /* color del texto */
-    font-family: Arial, sans-serif;
-}
-
-/* Párrafos */
+/* === TEXTOS === */
 p {
-    color: #666;
+    color: #4a3a5d;
     line-height: 1.6;
 }
 
-/* Títulos */
 h1, h2, h3 {
-    color: #258cfb; /* mismo azul que usa tu tema */
+    color: #7a3ca3;
+    font-weight: 600;
 }
 
-/* Card de mascotas */
+/* === BOTONES === */
+.btn-primary {
+    background-color: #7a3ca3;
+    border-color: #7a3ca3;
+}
+
+    .btn-primary:hover {
+        background-color: #9c54c3;
+        border-color: #9c54c3;
+    }
+
+/* === CARD DE MASCOTAS === */
 .card-mascota {
-    border: 1px solid #ddd;
+    border: 1px solid #e5d0f3;
     border-radius: 12px;
-    background-color: #fff;
+    background-color: transparent !important;
     padding: 15px;
     margin-bottom: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-    /* Efecto hover */
     .card-mascota:hover {
         transform: scale(1.02);
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    /* Imagen dentro de la card */
     .card-mascota img {
         width: 100%;
         border-radius: 10px;
         margin-bottom: 10px;
     }
 
-    /* Botón dentro de la card */
     .card-mascota button {
-        background-color: #258cfb;
+        background-color: #7a3ca3;
         border: none;
     }
 
         .card-mascota button:hover {
-            background-color: #1b6ec2;
+            background-color: #9c54c3;
         }
 
-
-/* Formulario de contacto */
-
+/* === FORMULARIO DE CONTACTO === */
 .card-formulario {
     max-width: 500px;
     margin: 40px auto;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: transparent !important;
+    border: 1px solid #e5d0f3;
     border-radius: 12px;
     padding: 25px 30px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -96,15 +89,14 @@ h1, h2, h3 {
     }
 
     .card-formulario h2 {
-        color: #258cfb;
+        color: #7a3ca3;
         text-align: center;
         margin-bottom: 20px;
-        font-weight: 600;
     }
 
     .card-formulario label {
         font-weight: 600;
-        color: #333;
+        color: #3c2a4d;
     }
 
     .card-formulario input,
@@ -120,13 +112,13 @@ h1, h2, h3 {
 
         .card-formulario input:focus,
         .card-formulario textarea:focus {
-            border-color: #258cfb;
+            border-color: #9c54c3;
             outline: none;
-            box-shadow: 0 0 5px rgba(37, 140, 251, 0.3);
+            box-shadow: 0 0 5px rgba(156, 84, 195, 0.3);
         }
 
     .card-formulario button {
-        background-color: #258cfb;
+        background-color: #7a3ca3;
         color: white;
         border: none;
         border-radius: 8px;
@@ -137,20 +129,21 @@ h1, h2, h3 {
     }
 
         .card-formulario button:hover {
-            background-color: #1b6ec2;
+            background-color: #9c54c3;
         }
 
+/* === SECCIÃ“N INFO === */
 .info-page {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
     padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 
     .info-page p {
         font-size: 1.1rem;
-        color: #333;
-        line-height: 1.6;
+        color: #3c2a4d;
     }
 
 .info-img {
@@ -162,3 +155,93 @@ h1, h2, h3 {
         transform: scale(1.05);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
+
+/* === FOOTER === */
+.footer-fijo {
+    background-color: #e5d0f3;
+    color: #3c2a4d;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+.header-huellas {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.huellas-laterales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.huella {
+    width: 60px;
+    opacity: 0.9;
+}
+
+.menu-superior {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+}
+
+    .menu-superior a {
+        text-decoration: none;
+        color: #7a3ca3;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        border-radius: 30px;
+        background-color: #f9f4fb;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+
+        .menu-superior a:hover {
+            background-color: #9c54c3;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+.btn-admin {
+    background-color: #e6d3f0;
+    color: #7a3ca3 !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+    .btn-admin:hover {
+        background-color: #9c54c3;
+        color: #fff !important;
+    }
+
+
+
+.btn-admin {
+    background-color: #7a3ca3;
+    color: #fff !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    .btn-admin:hover {
+        background-color: #9c54c3;
+        transform: scale(1.05);
+    }
+
+
+
+
+
+
+
+

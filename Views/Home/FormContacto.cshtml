@@ -20,4 +20,11 @@
 
         <button type="submit">Enviar mensaje</button>
     </form>
+
+    @if (ViewBag.Mensaje != null)
+    {
+        <div class="alert alert-success mt-3">
+            @ViewBag.Mensaje
+        </div>
+    }
 </div>

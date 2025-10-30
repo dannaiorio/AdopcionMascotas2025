@@ -606,5 +606,33 @@ body.fondo-huellas {
     }
 }
 
+.btn-filtro-mascota {
+    background-color: #f2e2fa;
+    color: #7a3ca3;
+    border: 2px solid #7a3ca3;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    font-family: 'Life Savers', cursive;
+}
+
+    .btn-filtro-mascota:hover {
+        background-color: #7a3ca3;
+        color: white;
+        transform: scale(1.05);
+    }
+
+/* BOTÓN ACTIVO */
+.btn-activo-filtro {
+    background-color: #7d40a7 !important;
+    color: white !important;
+    box-shadow: 0 0 10px rgba(122, 60, 163, 0.4);
+}
+
+
+
 
 

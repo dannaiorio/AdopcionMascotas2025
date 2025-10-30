@@ -62,6 +62,24 @@ namespace AdopcionMascotas.Controllers
 
             return View(mascotas);
         }
+        public IActionResult Perros()
+        {
+            var perros = _context.Mascotas
+                         .Where(m => m.Especie == EspecieMascota.Perro && m.Estado == EstadoMascota.Disponible)
+                         .ToList();
+
+            return View("EnAdopcion", perros); 
+        }
+
+        public IActionResult Gatos()
+        {
+            var gatos = _context.Mascotas
+                         .Where(m => m.Especie == EspecieMascota.Gato && m.Estado == EstadoMascota.Disponible)
+                         .ToList();
+
+            return View("EnAdopcion", gatos); 
+        }
+
 
     }
 }

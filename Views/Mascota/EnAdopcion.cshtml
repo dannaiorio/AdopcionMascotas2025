@@ -6,6 +6,24 @@
 
 <h1 class="titulo-seccion text-center mb-4">Mascotas en adopción</h1>
 
+@{
+    var accionActual = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<div class="text-center mb-4">
+    <a asp-action="EnAdopcion" class="btn btn-filtro-mascota mx-2 @(accionActual == "EnAdopcion" ? "btn-activo-filtro" : "")">
+         Ver todas
+    </a>
+    <a asp-action="Perros" class="btn btn-filtro-mascota mx-2 @(accionActual == "Perros" ? "btn-activo-filtro" : "")">
+        🐶 Perros
+    </a>
+    <a asp-action="Gatos" class="btn btn-filtro-mascota mx-2 @(accionActual == "Gatos" ? "btn-activo-filtro" : "")">
+        🐱 Gatos
+    </a>
+</div>
+
+
+
 <div class="container">
     
         @foreach (var item in Model)

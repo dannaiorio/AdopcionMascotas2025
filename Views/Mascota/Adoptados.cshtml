@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AdopcionMascotas.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Mascotas adoptadas";
+}
+
+<h1>Mascotas adoptadas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Edad</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImagenUrl))
+                    {
+                        <img src="@item.ImagenUrl" alt="@item.Nombre" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" />
+                    }
+                    else
+                    {
+                        <div style="width: 60px; height: 60px; background-color: #f8f9fa; border: 1px dashed #dee2e6; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: #6c757d; font-size: 12px;">Sin imagen</span>
+                        </div>
+                    }
+                </td>
+                <td>@item.Nombre</td>
+                <td>@item.Especie</td>
+                <td>@item.Edad</td>
+                <td>@item.Descripcion</td>
+            </tr>
+        }
+    </tbody>
+</table>

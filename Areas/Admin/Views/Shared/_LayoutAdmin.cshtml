@@ -74,18 +74,7 @@
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Script para ocultar automáticamente -->
-    <script>
-        setTimeout(function () {
-            var alert = document.getElementById('alertMsg');
-            if (alert) {
-                alert.style.transition = "opacity 0.5s ease";
-                alert.style.opacity = "0";
-                setTimeout(function () { alert.remove(); }, 500);
-            }
-        }, 3000);
-    </script>
+    <script src="~/js/site.js"></script>
     @RenderSection("Scripts", required: false)
 
 </body>

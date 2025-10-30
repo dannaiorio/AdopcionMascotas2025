@@ -23,11 +23,13 @@ body {
 p {
     color: #4a3a5d;
     line-height: 1.6;
+    font-family: 'Life Savers', cursive;
 }
 
 h1, h2, h3 {
     color: #7a3ca3;
     font-weight: 600;
+    font-family: 'Life Savers', cursive;
 }
 
 /* === BOTONES GENERALES === */
@@ -129,6 +131,7 @@ h1, h2, h3 {
     max-width: 1200px;
     width: 100%;
     gap: 40px;
+
 }
 
 .texto {
@@ -143,6 +146,7 @@ h1, h2, h3 {
     font-weight: 700;
     font-size: 3rem;
     margin-bottom: 25px;
+    font-family: 'Life Savers', cursive;
 }
 
 .instagram {
@@ -175,7 +179,7 @@ h1, h2, h3 {
         line-height: 1.5;
         color: #3c2a4d;
         text-align: center;
-        
+        font-family: 'Poppins', sans-serif;
     }
 
 .imagen {
@@ -211,6 +215,7 @@ h1, h2, h3 {
 
     .titulo {
         font-size: 2.2rem;
+        font-family: 'Life Savers', cursive;
     }
 
     .inicio {
@@ -233,41 +238,11 @@ h1, h2, h3 {
 
         .hero-texto p {
             font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 }
 
-/*  CARD DE MASCOTAS
-   */
 
-.card-mascota {
-    border: 1px solid #e5d0f3;
-    border-radius: 12px;
-    background-color: transparent !important;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-    .card-mascota:hover {
-        transform: scale(1.02);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .card-mascota img {
-        width: 100%;
-        border-radius: 10px;
-        margin-bottom: 10px;
-    }
-
-    .card-mascota button {
-        background-color: #7a3ca3;
-        border: none;
-    }
-
-        .card-mascota button:hover {
-            background-color: #9c54c3;
-        }
 
 /*  FORMULARIO DE CONTACTO
     */
@@ -357,6 +332,7 @@ h1, h2, h3 {
     min-height: 100vh;
     padding: 100px 0 45vh 0;
     text-align: center;
+
 }
 
     
@@ -514,4 +490,121 @@ body.fondo-huellas {
         color: #3c2a4d;
         margin-bottom: 2rem;
     }
+
+/* --- ENCABEZADO DE LA CARD --- */
+.card-header-mascota {
+    background-color: #ede1f5;
+    border-bottom: 1px solid #e5d0f3;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 20px;
+}
+
+    .card-header-mascota .nombre-mascota {
+        font-family: 'Poppins', sans-serif;
+        color: #5e2f80;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+.icono-mascota {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.estado-mascota {
+    font-family: 'Poppins', sans-serif;
+    background-color: #472b52;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    ;
+}
+
+/* --- CARD PRINCIPAL --- */
+.card-mascota-horizontal {
+    background-color: #f8eaff;
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid #e5d0f3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .card-mascota-horizontal:hover {
+        transform: scale(1.01);
+        box-shadow: 0 4px 14px rgba(122, 60, 163, 0.15);
+    }
+
+/* --- Imagen --- */
+.img-mascota-horizontal {
+    width: 86%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 0 0 0 12px;
+}
+.img-details {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+/* --- Texto general --- */
+.card-body {
+    padding: 15px 25px;
+}
+
+    .card-body p {
+        font-family: 'Poppins', sans-serif;
+        color: #3c2a4d;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+
+    .card-body strong {
+        color: #5e2f80;
+    }
+
+/* --- Descripción --- */
+.descripcion {
+    font-style: italic;
+    color: #3c2a4d;
+}
+
+/* --- Botón --- */
+.btn-mascota {
+    background-color: #7a3ca3;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+    .btn-mascota:hover {
+        background-color: #5e2f80;
+        transform: scale(1.05);
+    }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .img-mascota-horizontal {
+        height: 180px;
+        border-radius: 0;
+    }
+
+    .card-header-mascota {
+        text-align: center;
+    }
+
+    .estado-mascota {
+        margin-top: 10px;
+    }
+}
+
+
 

@@ -1,5 +1,5 @@
-﻿
-/* === ESTILO GENERAL === */
+﻿/*  ESTILOS GLOBALES
+    */
 
 html {
     font-size: 14px;
@@ -30,18 +30,211 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-/* === BOTONES === */
+/* === BOTONES GENERALES === */
 .btn-primary {
     background-color: #7a3ca3;
     border-color: #7a3ca3;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
     .btn-primary:hover {
         background-color: #9c54c3;
         border-color: #9c54c3;
+        transform: scale(1.03);
     }
 
-/* === CARD DE MASCOTAS === */
+.btn-outline-secondary {
+    border-radius: 30px;
+}
+
+/* ENCABEZADO Y MENÚ SUPERIOR
+   */
+
+.header-huellas {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.huellas-laterales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.huella {
+    width: 70px;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+}
+
+.menu-superior {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    font-family: 'Life Savers', cursive;
+}
+
+    .menu-superior a {
+        text-decoration: none;
+        color: #7a3ca3;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        border-radius: 30px;
+        background-color: #f9f4fb;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+
+        .menu-superior a:hover {
+            background-color: #9c54c3;
+            color: #fff !important;
+            transform: scale(1.05);
+        }
+
+/*  HOME / INICIO
+    */
+
+.home-body {
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Life Savers', cursive;
+    color: #3a2f3c;
+}
+
+.inicio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background-image: url('/imagenes/imagenInicio.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+
+.texto {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.titulo {
+    color: #7a3ca3;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 25px;
+}
+
+.instagram {
+    margin-top: 30px;
+    color: #5c326c;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.hero-texto {
+    position: relative;
+    top: -340px;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    border-radius: 25px;
+    backdrop-filter: blur(1px);
+}
+
+    .hero-texto h1 {
+        font-size: 5rem;
+        color: #7a3ca3;
+        margin-bottom: 25px;
+    }
+
+    .hero-texto p {
+        font-size: 1.3rem;
+        line-height: 1.5;
+        color: #3c2a4d;
+        text-align: center;
+    }
+
+.imagen {
+    margin-top: 25px;
+    text-align: center;
+}
+
+    .imagen img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+/* === RESPONSIVE HOME === */
+@media (max-width: 768px) {
+    .contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto {
+        padding-right: 0;
+    }
+
+    .imagen {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+        .imagen img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+    .titulo {
+        font-size: 2.2rem;
+    }
+
+    .inicio {
+        flex-direction: column;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .hero-texto {
+        width: 100%;
+    }
+
+        .hero-texto h1 {
+            font-size: 3rem;
+        }
+
+        .hero-texto p {
+            font-size: 1rem;
+        }
+}
+
+/*  CARD DE MASCOTAS
+   */
+
 .card-mascota {
     border: 1px solid #e5d0f3;
     border-radius: 12px;
@@ -72,7 +265,9 @@ h1, h2, h3 {
             background-color: #9c54c3;
         }
 
-/* === FORMULARIO DE CONTACTO === */
+/*  FORMULARIO DE CONTACTO
+    */
+
 .card-formulario {
     max-width: 500px;
     margin: 40px auto;
@@ -133,14 +328,15 @@ h1, h2, h3 {
             background-color: #9c54c3;
         }
 
-/* === SECCIÓN INFO === */
+/*  SECCIÓN INFO
+    */
+
 .info-page {
     background-color: transparent;
     border-radius: 0;
     box-shadow: none;
     padding: 2rem;
 }
-
 
     .info-page p {
         font-size: 1.1rem;
@@ -157,208 +353,8 @@ h1, h2, h3 {
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
-/* === FOOTER === */
-.footer-fijo {
-    background-color: #e5d0f3;
-    color: #3c2a4d;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    font-size: 0.9rem;
-}
-.header-huellas {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.huellas-laterales {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.huella {
-    width: 60px;
-    opacity: 0.9;
-}
-
-.menu-superior {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    padding: 10px 15px;
-    font-family: 'Life Savers', cursive;
-}
-
-    .menu-superior a {
-        text-decoration: none;
-        color: #7a3ca3;
-        font-weight: 600;
-        font-size: 1.1rem;
-        padding: 10px 20px;
-        border-radius: 30px;
-        background-color: #f9f4fb;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
-    }
-
-        .menu-superior a:hover {
-            background-color: #9c54c3;
-            color: #fff !important;
-            transform: scale(1.05);
-        }
-
-
-
-
-
-.btn-admin {
-    background-color: #7a3ca3;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-    font-family: 'Life Savers', cursive;
-}
-
-    .btn-admin:hover {
-        background-color: #9c54c3;
-        color: #fff !important;
-        transform: scale(1.05);
-    }
-
-.home-body {
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    font-family: 'Life Savers', cursive;
-    color: #3a2f3c;
-}
-
-.inicio {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    background-image: url('/imagenes/imagenInicio.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right center;
-}
-
-.contenido {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
-    gap: 40px;
-}
-
-.texto {
-    flex: 1;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    text-align: left;
-}
-
-.titulo {
-    color: #7a3ca3;
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 25px;
-}
-
-.instagram {
-    margin-top: 30px;
-    color: #5c326c;
-    font-weight: 600;
-    font-size: 1.3rem;
-}
-
-.hero-texto {
-    position: relative;
-    top: -340px;
-    width: 85%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0px;
-    border-radius: 25px;
-    backdrop-filter: blur(1px);
-}
-
-.hero-texto h1 {
-    font-size: 5rem;
-    color: #7a3ca3;
-    margin-bottom: 25px;
-}
-
-.hero-texto p {
-    font-size: 1.3rem;
-    line-height: 1.5;
-    color: #3c2a4d;
-    text-align: center;
-}
-
-.imagen {
-    margin-top: 25px;
-    text-align: center;
-}
-
-.imagen img {
-    width: 100%;
-    max-width: 400px;
-}
-
-@media (max-width: 768px) {
-    .contenido {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .texto {
-        padding-right: 0;
-    }
-
-    .imagen {
-        margin-top: 25px;
-        text-align: center;
-    }
-
-    .imagen img {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .titulo {
-        font-size: 2.2rem;
-    }
-
-    .inicio {
-        flex-direction: column;
-        background-size: cover;
-        background-position: center;
-        text-align: center;
-        padding: 60px 20px;
-    }
-
-    .hero-texto {
-        width: 100%;
-    }
-
-    .hero-texto h1 {
-        font-size: 3rem;
-    }
-
-    .hero-texto p {
-        font-size: 1rem;
-    }
-}
+/*  PÁGINA DONAR
+    */
 
 .donar-page {
     background-color: rgba(255, 255, 255, 0.9);
@@ -368,21 +364,21 @@ h1, h2, h3 {
     font-family: 'Life Savers', cursive;
 }
 
-.donar-page h1 {
-    color: #7a3ca3;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
+    .donar-page h1 {
+        color: #7a3ca3;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
 
-.donar-page p {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
-    text-align: left;
-    margin: 0 auto;
-    max-width: 750px;
-}
+    .donar-page p {
+        font-size: 1.1rem;
+        color: #333;
+        line-height: 1.6;
+        text-align: left;
+        margin: 0 auto;
+        max-width: 750px;
+    }
 
 .btn-volver {
     display: inline-block;
@@ -397,11 +393,14 @@ h1, h2, h3 {
     transition: all 0.3s ease;
 }
 
-.btn-volver:hover {
-    background-color: #6c757d;
-    transform: scale(1.05);
-    text-decoration: none;
-}
+    .btn-volver:hover {
+        background-color: #6c757d;
+        transform: scale(1.05);
+        text-decoration: none;
+    }
+
+/*  ADMIN / LOGIN
+   */
 
 .page-with-background {
     background-color: #ffffff;
@@ -421,22 +420,23 @@ h1, h2, h3 {
     border-radius: 10px 10px 0 0;
 }
 
-.btn-primary {
+.btn-admin {
     background-color: #7a3ca3;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Life Savers', cursive;
 }
 
-.btn-primary:hover {
-    background-color: #9c54c3;
-    transform: scale(1.03);
-}
+    .btn-admin:hover {
+        background-color: #9c54c3;
+        color: #fff !important;
+        transform: scale(1.05);
+    }
 
-.btn-outline-secondary {
-    border-radius: 30px;
-}
+/*  FONDOS / COMPLEMENTOS
+ */
 
 body.fondo-huellas {
     background-repeat: no-repeat;
@@ -446,50 +446,22 @@ body.fondo-huellas {
     background-color: #f8f9fa;
 }
 
+/* FOOTER
+  */
+
 .footer-fijo {
+    background-color: #e5d0f3;
+    color: #3c2a4d;
     text-align: center;
-    padding: 1rem 0;
-    color: #555;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }
 
-.huella {
-    width: 70px;
-    mix-blend-mode: multiply;
-    opacity: 0.9;
-}
-
-.contenedor-superior {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-}
-
-.menu-superior a {
-    margin: 0 10px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #7a3ca3;
-}
-
-.menu-superior a:hover {
-    color: #9c54c3;
-}
-
-.dropdown-item:hover {
-    background-color: #e9ecef;
-    color: #1e2125;
-}
-
+/* 
+    UTILIDADES
+    */
 
 .title-purple {
     color: #7a3ca3;
 }
-
-
-
-
-
-
-
-

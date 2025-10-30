@@ -1,16 +1,21 @@
-using System.Diagnostics;
 using AdopcionMascotas.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+
+using AdopcionMascotas.Data;
+
 
 namespace AdopcionMascotas.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AppDbContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AppDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -38,10 +43,26 @@ namespace AdopcionMascotas.Controllers
         [HttpPost]
         public IActionResult FormContacto(string nombre, string email, string telefono, string mensaje)
         {
-            ViewBag.Mensaje = $"Gracias por contactarte, {nombre}. Te responderemos al {telefono} o por correo.";
+            if (ModelState.IsValid)
+            {
+                var solicitud = new SolicitudContacto
+                {
+                    Nombre = nombre,
+                    Email = email,
+                    Telefono = telefono,
+                    Mensaje = mensaje
+                };
+
+                Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<SolicitudContacto> entityEntry = _context.SolicitudesContacto.Add(solicitud);
+                _context.SaveChanges();
+
+                ViewBag.Mensaje = $"Gracias por contactarte, {nombre}. Te responderemos al {telefono} o por correo.";
+            }
+
             return View();
         }
-       // agrego boton info
+
+        // agrego boton info
         public IActionResult Info()
         {
             return View();

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AdopcionMascotas.Models.SolicitudContacto>
+
+@{
+    ViewData["Title"] = "Solicitudes de contacto";
+}
+
+<h2 class="mb-4">Solicitudes de contacto</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Email</td>
+                <td>@item.Telefono</td>
+                <td>@item.Mensaje</td>
+                <td>@item.Fecha.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

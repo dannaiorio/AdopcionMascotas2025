@@ -190,6 +190,7 @@ h1, h2, h3 {
     gap: 25px;
     flex-wrap: wrap;
     padding: 10px 15px;
+    font-family: 'Life Savers', cursive;
 }
 
     .menu-superior a {
@@ -206,7 +207,7 @@ h1, h2, h3 {
 
         .menu-superior a:hover {
             background-color: #9c54c3;
-            color: #fff;
+            color: #fff !important;
             transform: scale(1.05);
         }
 
@@ -220,10 +221,12 @@ h1, h2, h3 {
     padding: 8px 15px;
     border-radius: 20px;
     transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Life Savers', cursive;
 }
 
     .btn-admin:hover {
         background-color: #9c54c3;
+        color: #fff !important;
         transform: scale(1.05);
     }
 

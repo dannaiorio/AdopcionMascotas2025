@@ -18,5 +18,6 @@ namespace AdopcionMascotas.Models
         public string Mensaje { get; set; }
 
         public DateTime Fecha { get; set; } = DateTime.Now;
+        public EstadoMensaje Estado { get; set; } = EstadoMensaje.Pendiente;
     }
 }

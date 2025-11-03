@@ -15,6 +15,8 @@
             <th>Otras Mascotas</th>
             <th>Motivo</th>
             <th>Fecha</th>
+            <th>Estado</th>
+            <th>Acción</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +33,24 @@
                 <td>@s.OtrasMascotas</td>
                 <td>@s.Motivo</td>
                 <td>@s.FechaSolicitud.ToShortDateString()</td>
+
+                <!-- Nueva columna Estado -->
+                <td>
+                    <span class="badge @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "bg-warning text-dark" : "bg-success")">
+                        @s.Estado
+                    </span>
+                </td>
+
+                <!-- Nueva columna Acción -->
+                <td>
+                    <form asp-action="CambiarEstado" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@s.Id" />
+                        <button type="submit"
+                                class="btn btn-sm @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "btn-success" : "btn-secondary")">
+                            @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "Marcar como Resuelta" : "Volver a Pendiente")
+                        </button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

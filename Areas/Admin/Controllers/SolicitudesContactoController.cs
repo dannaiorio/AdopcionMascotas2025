@@ -1,4 +1,5 @@
 ﻿using AdopcionMascotas.Data;
+using AdopcionMascotas.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdopcionMascotas.Areas.Admin.Controllers
@@ -20,5 +21,23 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
                 .ToList();
             return View(solicitudes);
         }
+
+        [HttpPost]
+        public IActionResult CambiarEstado(int id)
+        {
+            var solicitud = _context.SolicitudesContacto.FirstOrDefault(s => s.Id == id);
+
+            if (solicitud != null)
+            {
+                solicitud.Estado = solicitud.Estado == EstadoMensaje.Pendiente
+                    ? EstadoMensaje.Resuelto
+                    : EstadoMensaje.Pendiente;
+
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

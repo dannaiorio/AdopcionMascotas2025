@@ -51,5 +51,7 @@ namespace AdopcionMascotas.Models
         [DataType(DataType.Date)]
         public DateTime FechaSolicitud { get; set; } = DateTime.Now;
 
+        public EstadoSolicitud Estado { get; set; } = EstadoSolicitud.Pendiente;
+
     }
 }

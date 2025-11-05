@@ -6,12 +6,11 @@
     <title>@ViewData["Title"] - Refugio de Mascotas</title>
 
    
-    <link rel="stylesheet" href="~/css/site.css" />
 
     <!-- Fuente Life Savers -->
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
 <body class="fondo-huellas">
@@ -20,11 +19,11 @@
         <div class="huellas-laterales">
             <img src="/images/NewFolder/huella violeta3.png" alt="Huella izquierda" class="huella">
             <nav class="menu-superior">
-                <a asp-area="" asp-controller="Mascota" asp-action="Index">ADOPTÁ</a>
+                <a asp-area="" asp-controller="Mascota" asp-action="EnAdopcion">EN ADOPCIÓN</a>
                 <a asp-area="" asp-controller="Home" asp-action="Info">INFO</a>
                 <a asp-area="" asp-controller="Home" asp-action="Dona">DONÁ</a>
                 <a asp-area="" asp-controller="Mascota" asp-action="Adoptados">ADOPTADOS</a>
-                <a asp-area="" asp-controller="Home" asp-action="FormContacto">Contacto</a>
+                <a asp-area="" asp-controller="Home" asp-action="FormContacto">CONTACTO</a>
 
                 <a asp-area="Admin" asp-controller="Auth" asp-action="Login" class="btn-admin">SECCIÓN ADMIN</a>
             </nav>

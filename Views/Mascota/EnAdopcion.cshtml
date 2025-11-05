@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AdopcionMascotas.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Mascotas en adopción";
+}
+
+<h1 class="titulo-seccion text-center mb-4">Mascotas en adopción</h1>
+
+@{
+    var accionActual = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<div class="text-center mb-4">
+    <a asp-action="EnAdopcion" class="btn btn-filtro-mascota mx-2 @(accionActual == "EnAdopcion" ? "btn-activo-filtro" : "")">
+         Ver todas
+    </a>
+    <a asp-action="Perros" class="btn btn-filtro-mascota mx-2 @(accionActual == "Perros" ? "btn-activo-filtro" : "")">
+        🐶 Perros
+    </a>
+    <a asp-action="Gatos" class="btn btn-filtro-mascota mx-2 @(accionActual == "Gatos" ? "btn-activo-filtro" : "")">
+        🐱 Gatos
+    </a>
+</div>
+
+
+
+<div class="container">
+    
+        @foreach (var item in Model)
+        {
+        <div class="card-mascota-horizontal mb-4 shadow-sm">
+            <div class="row g-0 align-items-center">
+                <!-- Imagen -->
+                <div class="col-md-4">
+                    @if (!string.IsNullOrEmpty(item.ImagenUrl))
+                    {
+                        <img src="@item.ImagenUrl" alt="@item.Nombre" class="img-mascota-horizontal" />
+                    }
+                    else
+                    {
+                        <div class="img-placeholder">
+                            <span>Sin imagen</span>
+                        </div>
+                    }
+                </div>
+
+                <!-- Contenido textual -->
+                <div class="col-md-8">
+                    <div class="card-body d-flex flex-column justify-content-between h-100">
+                        <!-- Nombre + ícono -->
+                        <div class="d-flex align-items-center mb-2">
+                            @if (item.Especie == AdopcionMascotas.Models.EspecieMascota.Perro)
+                            {
+                                <span class="icono-mascota me-2">🐶</span>
+                            }
+                            else if (item.Especie == AdopcionMascotas.Models.EspecieMascota.Gato)
+                            {
+                                <span class="icono-mascota me-2">🐱</span>
+                            }
+
+                            <h4 class="nombre-mascota mb-0">@item.Nombre</h4>
+                        </div>
+
+                        <!-- Datos -->
+                        <p><strong>Especie:</strong> @item.Especie</p>
+                        <p><strong>Edad:</strong> @item.Edad año(s)</p>
+                        <p class="descripcion">@item.Descripcion</p>
+
+                        <!-- Estado y botón -->
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="estado-mascota">@item.Estado</span>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-mascota">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        }
+
+    }
+
+    @await Html.PartialAsync("_BotonVolver")
+</div>
+

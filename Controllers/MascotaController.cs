@@ -22,8 +22,9 @@ namespace AdopcionMascotas.Controllers
         // GET: Mascota
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Mascotas.ToListAsync());
+            return RedirectToAction("EnAdopcion");
         }
+
 
         // GET: Mascota/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -42,5 +43,43 @@ namespace AdopcionMascotas.Controllers
 
             return View(mascota);
         }
+        // GET: Mascota/EnAdopcion
+        public async Task<IActionResult> EnAdopcion()
+        {
+            var mascotas = await _context.Mascotas
+                .Where(m => m.Estado == EstadoMascota.Disponible || m.Estado == EstadoMascota.EnProceso)
+                .ToListAsync();
+
+            return View(mascotas);
+        }
+
+        // GET: Mascota/Adoptados
+        public async Task<IActionResult> Adoptados()
+        {
+            var mascotas = await _context.Mascotas
+                .Where(m => m.Estado == EstadoMascota.Adoptada)
+                .ToListAsync();
+
+            return View(mascotas);
+        }
+        public IActionResult Perros()
+        {
+            var perros = _context.Mascotas
+                         .Where(m => m.Especie == EspecieMascota.Perro && m.Estado == EstadoMascota.Disponible)
+                         .ToList();
+
+            return View("EnAdopcion", perros); 
+        }
+
+        public IActionResult Gatos()
+        {
+            var gatos = _context.Mascotas
+                         .Where(m => m.Especie == EspecieMascota.Gato && m.Estado == EstadoMascota.Disponible)
+                         .ToList();
+
+            return View("EnAdopcion", gatos); 
+        }
+
+
     }
 }

@@ -18,5 +18,7 @@ namespace AdopcionMascotas.Data
 
         public DbSet<Mascota> Mascotas { get; set; }
         public DbSet<SolicitudAdopcion> Solicitudes { get; set; }
+        public DbSet<SolicitudContacto> SolicitudesContacto { get; set; }
+
     }
 }

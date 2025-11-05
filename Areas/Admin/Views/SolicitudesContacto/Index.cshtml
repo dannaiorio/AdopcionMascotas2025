@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AdopcionMascotas.Models.SolicitudContacto>
+
+<h2 class="text-primary mb-3">💬 Mensajes de Contacto</h2>
+
+<table class="table table-striped text-center align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Nombre</td>
+                <td>@s.Email</td>
+                <td>@s.Telefono</td>
+                <td>@s.Mensaje</td>
+                <td>@s.Fecha.ToShortDateString()</td>
+
+                <td>
+                    <span class="badge @(s.Estado == AdopcionMascotas.Models.EstadoMensaje.Pendiente ? "bg-warning text-dark" : "bg-success")">
+                        @s.Estado
+                    </span>
+                </td>
+
+                <td>
+                    <form asp-action="CambiarEstado" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@s.Id" />
+                        <button type="submit"
+                                class="btn btn-sm @(s.Estado == AdopcionMascotas.Models.EstadoMensaje.Pendiente ? "btn-success" : "btn-secondary")">
+                            @(s.Estado == AdopcionMascotas.Models.EstadoMensaje.Pendiente ? "Marcar como Resuelto" : "Volver a Pendiente")
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

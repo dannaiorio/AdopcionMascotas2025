@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace AdopcionMascotas.Migrations
 {
     /// <inheritdoc />
-    public partial class InicialCompleta : Migration
+    public partial class inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,11 +21,30 @@ namespace AdopcionMascotas.Migrations
                     Especie = table.Column<int>(type: "int", nullable: false),
                     Estado = table.Column<int>(type: "int", nullable: false),
                     Edad = table.Column<int>(type: "int", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImagenUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Mascotas", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SolicitudesContacto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Mensaje = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Estado = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SolicitudesContacto", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -33,6 +53,7 @@ namespace AdopcionMascotas.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    MascotaId = table.Column<int>(type: "int", nullable: false),
                     NombreApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -45,7 +66,8 @@ namespace AdopcionMascotas.Migrations
                     CuidadoDiario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Seguimiento = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comentario = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MascotaId = table.Column<int>(type: "int", nullable: false)
+                    FechaSolicitud = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Estado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,6 +91,9 @@ namespace AdopcionMascotas.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Solicitudes");
+
+            migrationBuilder.DropTable(
+                name: "SolicitudesContacto");
 
             migrationBuilder.DropTable(
                 name: "Mascotas");

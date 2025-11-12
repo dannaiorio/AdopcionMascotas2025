@@ -27,6 +27,7 @@ namespace AdopcionMascotas.Controllers
         public IActionResult EnviarFormulario(SolicitudAdopcion solicitud)
         {
             if (ModelState.IsValid)
+                solicitud.Comentario ??= string.Empty;
             {
                 _context.Solicitudes.Add(solicitud);
                 _context.SaveChanges();

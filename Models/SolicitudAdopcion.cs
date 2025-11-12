@@ -44,7 +44,7 @@ namespace AdopcionMascotas.Models
         [Required(ErrorMessage = "Debe responder si acepta seguimiento")]
         public string Seguimiento { get; set; }
 
-        public string Comentario { get; set; }
+        public string? Comentario { get; set; }
 
         // Relación con Mascota (para poder acceder al nombre, especie, etc.)
         public Mascota? Mascota { get; set; }

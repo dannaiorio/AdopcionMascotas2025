@@ -26,6 +26,7 @@
     <Content Remove="Views\Home\FormContacto - Copia.cshtml" />
     <Content Remove="wwwroot\images\NewFolder\huella violeta.png" />
     <Content Remove="wwwroot\images\NewFolder\huella violeta2.png" />
+    <Content Remove="wwwroot\images\Untitled %283%29.png" />
   </ItemGroup>
 
   <ItemGroup>

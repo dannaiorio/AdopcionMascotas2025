@@ -43,5 +43,49 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult AceptarSolicitud(int id)
+        {
+            var solicitud = _context.Solicitudes
+                .Include(s => s.Mascota)
+                .FirstOrDefault(s => s.Id == id);
+
+            if (solicitud != null)
+            {
+                solicitud.Estado = EstadoSolicitud.Aceptada;
+                
+                if (solicitud.Mascota != null)
+                {
+                    solicitud.Mascota.Estado = EstadoMascota.Adoptada;
+                }
+                
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult RechazarSolicitud(int id)
+        {
+            var solicitud = _context.Solicitudes
+                .Include(s => s.Mascota)
+                .FirstOrDefault(s => s.Id == id);
+
+            if (solicitud != null)
+            {
+                solicitud.Estado = EstadoSolicitud.Rechazada;
+                
+                if (solicitud.Mascota != null)
+                {
+                    solicitud.Mascota.Estado = EstadoMascota.Disponible;
+                }
+                
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

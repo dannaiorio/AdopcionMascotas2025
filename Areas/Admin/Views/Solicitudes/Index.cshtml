@@ -36,20 +36,41 @@
 
                 <!-- Nueva columna Estado -->
                 <td>
-                    <span class="badge @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "bg-warning text-dark" : "bg-success")">
+                    <span class="badge @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "bg-warning text-dark" : 
+                                        s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Aceptada ? "bg-success" :
+                                        s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Rechazada ? "bg-danger" : "bg-info")">
                         @s.Estado
                     </span>
                 </td>
 
                 <!-- Nueva columna Acción -->
                 <td>
-                    <form asp-action="CambiarEstado" method="post" class="d-inline">
-                        <input type="hidden" name="id" value="@s.Id" />
-                        <button type="submit"
-                                class="btn btn-sm @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "btn-success" : "btn-secondary")">
-                            @(s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente ? "Marcar como Resuelta" : "Volver a Pendiente")
-                        </button>
-                    </form>
+                    @if (s.Estado == AdopcionMascotas.Models.EstadoSolicitud.Pendiente)
+                    {
+                        <div class="btn-group" role="group">
+                            <form asp-action="AceptarSolicitud" method="post" class="d-inline" 
+                                  onsubmit="return confirm('¿Estás seguro de que quieres ACEPTAR esta solicitud? La mascota será marcada como adoptada.');">
+                                <input type="hidden" name="id" value="@s.Id" />
+                                <button type="submit" class="btn btn-sm btn-success me-1">
+                                    <i class="fas fa-check"></i> Aceptar
+                                </button>
+                            </form>
+                            
+                            <form asp-action="RechazarSolicitud" method="post" class="d-inline"
+                                  onsubmit="return confirm('¿Estás seguro de que quieres RECHAZAR esta solicitud?');">
+                                <input type="hidden" name="id" value="@s.Id" />
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-times"></i> Rechazar
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <span class="text-muted">
+                            <i class="fas fa-check-circle"></i> Procesada
+                        </span>
+                    }
                 </td>
             </tr>
         }

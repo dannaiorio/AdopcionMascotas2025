@@ -48,8 +48,15 @@
                     <p><strong>Descripción:</strong> @Model.Descripcion</p>
 
                     <div class="mt-3">
-                        <a asp-controller="Solicitudes" asp-action="Formulario" asp-route-idMascota="@Model.Id"
-                           class="btn btn-mascota me-2"> ¡Adoptame!</a>
+                        @if (Model.Estado == AdopcionMascotas.Models.EstadoMascota.EnProceso)
+                        {
+                            <button class="btn btn-mascota me-2" disabled>No Disponible</button>
+                        }
+                        else
+                        {
+                            <a asp-controller="Solicitudes" asp-action="Formulario" asp-route-idMascota="@Model.Id"
+                               class="btn btn-mascota me-2"> ¡Adoptame!</a>
+                        }
 
                         <a asp-action="EnAdopcion" class="btn btn-secondary">
                             <i class="fas fa-arrow-left"></i> Volver al listado

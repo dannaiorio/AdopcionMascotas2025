@@ -1,19 +1,25 @@
-﻿<link rel="stylesheet" href="~/css/site.css" />
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <title>Panel Admin - Refugio de Mascotas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="admin-body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark admin-navbar">
         <a class="navbar-brand" href="/Admin/Mascota">🔧 Panel Admin</a>
-        <div class="collapse navbar-collapse">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#adminNavbar" aria-controls="adminNavbar"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="adminNavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/Admin/Mascota">Mascotas</a>
@@ -22,27 +28,38 @@
                     <a class="nav-link" href="/">Ir al sitio público</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="Admin" asp-controller="Solicitudes" asp-action="Index">
-                         Solicitudes de adopción
+                    <a class="nav-link"
+                       asp-area="Admin"
+                       asp-controller="Solicitudes"
+                       asp-action="Index">
+                        Solicitudes de adopción
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="Admin" asp-controller="SolicitudesContacto" asp-action="Index">
+                    <a class="nav-link"
+                       asp-area="Admin"
+                       asp-controller="SolicitudesContacto"
+                       asp-action="Index">
                         Solicitudes de contacto
                     </a>
                 </li>
-
             </ul>
+
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
                         👤 @Context.Session.GetString("AdminUsername")
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("Logout", "Auth", new { area = "Admin" })"
-                                onclick="return confirm('¿Estás seguro que deseas cerrar sesión?')">
+                            <a class="dropdown-item"
+                               href="@Url.Action("Logout", "Auth", new { area = "Admin" })"
+                               onclick="return confirm('¿Estás seguro que deseas cerrar sesión?')">
                                 🚪 Cerrar Sesión
                             </a>
                         </li>
@@ -81,7 +98,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
     @RenderSection("Scripts", required: false)
-
 </body>
-
 </html>
+

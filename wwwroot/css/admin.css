@@ -1,0 +1,145 @@
+﻿/* /
+   Estilos Área Admin
+ */
+
+/* Fondo general del admin */
+body.admin-body {
+    background: #e8e8e8;
+    background: linear-gradient( 45deg, #efefef, #efefef 10px, #e8e8e8 10px, #e8e8e8 20px );
+    color: #333;
+    font-family: 'sans-serif', sans-serif;
+}
+
+    /* Quitar cursor de huellita en el Admin (sobrescribe lo global) */
+    body.admin-body,
+    body.admin-body a,
+    body.admin-body button,
+    body.admin-body input,
+    body.admin-body select,
+    body.admin-body textarea,
+    body.admin-body label,
+    body.admin-body .btn,
+    body.admin-body .nav-link,
+    body.admin-body .form-control {
+        cursor: auto;
+    }
+
+/* Navbar del Admin */
+.admin-navbar {
+    background: linear-gradient(90deg, #4a4a4a, #6e6e6e);
+}
+
+    .admin-navbar .navbar-brand {
+        color: #ffffff !important;
+        font-family: 'sans-serif', sans-serif;
+        letter-spacing: 0.03em;
+    }
+
+        .admin-navbar .navbar-brand:hover {
+            color: #f7e9ff;
+        }
+
+    .admin-navbar .nav-link {
+        color: #f5e9ff;
+        font-weight: 500;
+    }
+
+        .admin-navbar .nav-link:hover,
+        .admin-navbar .nav-link:focus,
+        .admin-navbar .nav-link.active {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+    .admin-navbar .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+/* Títulos dentro del Admin */
+body.admin-body h1,
+body.admin-body h2,
+body.admin-body h3 {
+    font-family: 'sans-serif', sans-serif;
+    font-weight: 600;
+    color: #5e2f80;
+}
+
+/* Título principal de página admin */
+.admin-page-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #5e2f80;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* Cards más sobrias en Admin */
+body.admin-body .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e5d0f3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Tablas del Admin */
+body.admin-body .table {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    body.admin-body .table thead {
+        background-color: #7a3ca3;
+        color: #ffffff;
+    }
+
+        body.admin-body .table thead th {
+            border-bottom: none;
+            font-weight: 500;
+        }
+
+    body.admin-body .table tbody tr:hover {
+        background-color: #f8eaff;
+    }
+
+/* Botones en Admin */
+body.admin-body .btn-primary {
+    background-color: #7a3ca3;
+    font-family: 'sans-serif', sans-serif;
+    border-color: #7a3ca3;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+    body.admin-body .btn-primary:hover {
+        background-color: #9c54c3;
+        border-color: #9c54c3;
+    }
+
+body.admin-body .btn-danger,
+body.admin-body .btn-warning,
+body.admin-body .btn-info,
+body.admin-body .btn-success,
+body.admin-body .btn-secondary {
+    border-radius: 20px;
+}
+
+/* Badges de estado en Admin */
+body.admin-body .badge.bg-warning {
+    background-color: #f5c46f !important;
+    color: #5a3c00 !important;
+}
+
+body.admin-body .badge.bg-success {
+    background-color: #2db47d !important;
+}
+
+body.admin-body .badge.bg-danger {
+    background-color: #d64545 !important;
+}
+
+body.admin-body .badge.bg-info {
+    background-color: #9c54c3 !important;
+}

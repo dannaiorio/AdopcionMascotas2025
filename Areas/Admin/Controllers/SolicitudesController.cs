@@ -57,6 +57,17 @@ namespace AdopcionMascotas.Areas.Admin.Controllers
                 if (solicitud.Mascota != null)
                 {
                     solicitud.Mascota.Estado = EstadoMascota.Adoptada;
+                    
+                    var otherPendingRequests = _context.Solicitudes
+                        .Where(s => s.MascotaId == solicitud.MascotaId 
+                                 && s.Id != id 
+                                 && s.Estado == EstadoSolicitud.Pendiente)
+                        .ToList();
+                    
+                    foreach (var request in otherPendingRequests)
+                    {
+                        request.Estado = EstadoSolicitud.Rechazada;
+                    }
                 }
                 
                 _context.SaveChanges();
